@@ -226,7 +226,7 @@ const ApplicationForm: React.FC = () => {
                 <div className="flex mt-4 space-x-4">
                     <button type="submit" className="bg-gradient-to-r from-[#fe3976] to-[#fc63c9] text-white px-6 font-semibold lg:py-3 rounded-md">Submit</button>
                     <button onClick={handleClearFields} className="bg-gray-500 text-white px-6 font-semibold lg:py-3 rounded-md">Clear Fields</button>
-                    <button onClick={handleFindAddress} className="bg-blue-500 text-white px-6 lg:font-semibold lg:py-3 rounded-md">Can't find my address?</button>
+                    <button onClick={handleFindAddress} className="bg-blue-500 text-white px-6 lg:font-semibold lg:py-3 rounded-md">Can not find my address?</button>
                 </div>
             </form>
             <ToastContainer /> {/* Add ToastContainer here */}
