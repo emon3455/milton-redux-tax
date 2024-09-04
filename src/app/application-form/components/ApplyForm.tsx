@@ -1,6 +1,7 @@
 "use client";
-import React, { useState, useEffect, useRef, ChangeEvent, MouseEvent, FormEvent } from 'react';
+import React, { useState, useEffect, MouseEvent, FormEvent } from 'react';
 import { useJsApiLoader } from '@react-google-maps/api';
+import { useAppSelector } from '@/Redux/hooks';
 
 const libraries: Array<"places"> = ["places"];
 
@@ -14,6 +15,11 @@ const ApplicationForm: React.FC = () => {
     const [pinCode, setPinCode] = useState<string>('');
     const [sendTextUpdates, setSendTextUpdates] = useState<boolean>(false);
     const [autocompleteInstances, setAutocompleteInstances] = useState<google.maps.places.Autocomplete[]>([]);
+
+    const addressInfo = useAppSelector(
+      (state) => state.addressSlice.addressInfo
+    );
+    console.log("addressInfo: ",addressInfo);
 
     const { isLoaded } = useJsApiLoader({
         id: "google-map-script",

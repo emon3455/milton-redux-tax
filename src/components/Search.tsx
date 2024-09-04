@@ -1,9 +1,11 @@
 "use client";
+
 import React, { useState, FormEvent, ChangeEvent, useRef, useEffect } from "react";
 import { useJsApiLoader } from "@react-google-maps/api";
 import { useAppSelector } from "@/Redux/hooks";
 import { useDispatch } from "react-redux";
 import { addressAction } from "@/Redux/Features/address/addressSlice";
+import { useRouter } from 'next/navigation';
 
 const libraries: ("places")[] = ["places"];
 
@@ -22,6 +24,7 @@ const Search: React.FC = () => {
   console.log("addressInfo: ",addressInfo);
 
   const dispatch = useDispatch();
+  const router = useRouter();
 
 
   // Load Google Maps API
@@ -47,6 +50,7 @@ const Search: React.FC = () => {
           setInputValue(place.formatted_address || "");
           setError(false);
           setErrorMessage("");
+          router.push('/application-form');
         }
       });
     }
