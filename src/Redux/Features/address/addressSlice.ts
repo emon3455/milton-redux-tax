@@ -9,7 +9,7 @@ const addressSlice = createSlice({
   name: "addressSlice",
   initialState,
   reducers: {
-    addressAction: (state, action: PayloadAction<boolean>) => {
+    addressAction: (state, action: PayloadAction<any>) => {
       state.addressInfo = action.payload;
     },
   },

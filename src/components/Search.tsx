@@ -1,6 +1,9 @@
 "use client";
 import React, { useState, FormEvent, ChangeEvent, useRef, useEffect } from "react";
 import { useJsApiLoader } from "@react-google-maps/api";
+import { useAppSelector } from "@/Redux/hooks";
+import { useDispatch } from "react-redux";
+import { addressAction } from "@/Redux/Features/address/addressSlice";
 
 const libraries: ("places")[] = ["places"];
 
@@ -12,6 +15,15 @@ const Search: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const resultRef = useRef<HTMLDivElement>(null);
   const [inputValue, setInputValue] = useState<string>("");
+
+  const addressInfo = useAppSelector(
+    (state) => state.addressSlice.addressInfo
+  );
+  console.log("addressInfo: ",addressInfo);
+
+  const dispatch = useDispatch();
+
+
   // Load Google Maps API
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -30,6 +42,7 @@ const Search: React.FC = () => {
       autocompleteRef.current.addListener("place_changed", () => {
         const place = autocompleteRef.current?.getPlace();
         if (place && place.geometry) {
+          dispatch(addressAction(place));
           setData(place);
           setInputValue(place.formatted_address || "");
           setError(false);
