@@ -18,10 +18,10 @@ const Search: React.FC = () => {
   const resultRef = useRef<HTMLDivElement>(null);
   const [inputValue, setInputValue] = useState<string>("");
 
-  const addressInfo = useAppSelector(
-    (state) => state.addressSlice.addressInfo
-  );
-  console.log("addressInfo: ",addressInfo);
+  // const addressInfo = useAppSelector(
+  //   (state) => state.addressSlice.addressInfo
+  // );
+  // console.log("addressInfo: ",addressInfo);
 
   const dispatch = useDispatch();
   const router = useRouter();

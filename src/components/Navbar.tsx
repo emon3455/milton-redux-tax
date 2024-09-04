@@ -50,8 +50,8 @@ const Navbar = () => {
     <nav className=" absolute z-50 m-4 top-0 left-0 right-0 rounded-xl items-center p-4 bg-white">
 
       <div className="flex items-center justify-between px-40">
-        <p className="font-semibold text-5xl"><Link href="/">
-        Redux</Link></p>
+        <p className="font-semibold text-5xl">
+          <Link href="/">Redux</Link></p>
         <ul className="flex items-center gap-10">
           <li className="flex gap-2 items-center"><MdOutlineMailOutline size={25} color="black" /> info@abcd.com</li>
           <li className="flex gap-2 items-center"><MdOutlinePhoneEnabled size={25} color="black" />

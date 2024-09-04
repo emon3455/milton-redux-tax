@@ -2,11 +2,20 @@
 import React, { useState, useEffect, MouseEvent, FormEvent } from 'react';
 import { useJsApiLoader } from '@react-google-maps/api';
 import { useAppSelector } from '@/Redux/hooks';
+import MapPhoto from './MapPhoto';
 
 const libraries: Array<"places"> = ["places"];
 
 const ApplicationForm: React.FC = () => {
-    const [propertyFields, setPropertyFields] = useState<string[]>(['']);
+    const addressInfo = useAppSelector(
+        (state) => state.addressSlice.addressInfo
+    );
+    console.log(addressInfo)
+    // Initialize propertyFields with the addressInfo.formatted_address as the first element
+    const [propertyFields, setPropertyFields] = useState<string[]>([
+        addressInfo?.formatted_address || ''
+    ]);
+
     const [firstName, setFirstName] = useState<string>('');
     const [lastName, setLastName] = useState<string>('');
     const [mobilePhone, setMobilePhone] = useState<string>('');
@@ -15,11 +24,6 @@ const ApplicationForm: React.FC = () => {
     const [pinCode, setPinCode] = useState<string>('');
     const [sendTextUpdates, setSendTextUpdates] = useState<boolean>(false);
     const [autocompleteInstances, setAutocompleteInstances] = useState<google.maps.places.Autocomplete[]>([]);
-
-    const addressInfo = useAppSelector(
-      (state) => state.addressSlice.addressInfo
-    );
-    console.log("addressInfo: ",addressInfo);
 
     const { isLoaded } = useJsApiLoader({
         id: "google-map-script",
@@ -67,7 +71,7 @@ const ApplicationForm: React.FC = () => {
 
     const handleClearFields = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        setPropertyFields(['']);
+        setPropertyFields([addressInfo?.formatted_address || '']);
         setFirstName('');
         setLastName('');
         setMobilePhone('');
@@ -196,9 +200,9 @@ const ApplicationForm: React.FC = () => {
                                 )}
                             </div>
                         ))}
-                    </div>
+                    </div> 
                 </div>
-
+                <MapPhoto address={addressInfo?.formatted_address} map={addressInfo?.url}/>
                 <div className="flex mt-4 space-x-4">
                     <button type="submit" className="bg-gradient-to-r from-[#fe3976] to-[#fc63c9] text-white px-6 font-semibold py-3 rounded-md">Submit</button>
                     <button onClick={handleClearFields} className="text-red-500">Clear all fields</button>
