@@ -110,7 +110,7 @@ const ApplicationForm: React.FC = () => {
             });
 
             if (response.ok) {
-                toast.success('Form submitted successfully!');
+                toast.success('Form submitted successfully!.');
             } else {
                 toast.error('Form submission failed. Please try again.');
             }
@@ -218,7 +218,7 @@ const ApplicationForm: React.FC = () => {
                                 )}
                             </div>
                         ))}
-                    </div> 
+                    </div>
                 </div>
                 {
                 addressInfo && <MapPhoto address={addressInfo?.formatted_address} map={addressInfo?.url}/>
