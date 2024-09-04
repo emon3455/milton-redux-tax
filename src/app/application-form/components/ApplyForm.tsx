@@ -3,6 +3,8 @@ import React, { useState, useEffect, MouseEvent, FormEvent } from 'react';
 import { useJsApiLoader } from '@react-google-maps/api';
 import { useAppSelector } from '@/Redux/hooks';
 import MapPhoto from './MapPhoto';
+import { ToastContainer, toast } from 'react-toastify'; // Import Toastify components
+import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
 
 const libraries: Array<"places"> = ["places"];
 
@@ -10,8 +12,7 @@ const ApplicationForm: React.FC = () => {
     const addressInfo = useAppSelector(
         (state) => state.addressSlice.addressInfo
     );
-    console.log(addressInfo)
-    // Initialize propertyFields with the addressInfo.formatted_address as the first element
+
     const [propertyFields, setPropertyFields] = useState<string[]>([
         addressInfo?.formatted_address || ''
     ]);
@@ -86,7 +87,7 @@ const ApplicationForm: React.FC = () => {
         // Add logic for "Can't find my address?" functionality
     };
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = {
             firstName,
@@ -98,7 +99,24 @@ const ApplicationForm: React.FC = () => {
             sendTextUpdates,
             properties: propertyFields
         };
-        console.log('Form Data:', formData);
+
+        try {
+            const response = await fetch('https://services.leadconnectorhq.com/hooks/Hl1CNBmuHQSHveigtUSl/webhook-trigger/99fe8983-6b13-4ed1-a6c6-42134c69e582', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                toast.success('Form submitted successfully!');
+            } else {
+                toast.error('Form submission failed. Please try again.');
+            }
+        } catch (error) {
+            toast.error("Something Went Wrong");
+        }
     };
 
     return (
@@ -202,13 +220,16 @@ const ApplicationForm: React.FC = () => {
                         ))}
                     </div> 
                 </div>
-                <MapPhoto address={addressInfo?.formatted_address} map={addressInfo?.url}/>
+                {
+                addressInfo && <MapPhoto address={addressInfo?.formatted_address} map={addressInfo?.url}/>
+                }
                 <div className="flex mt-4 space-x-4">
-                    <button type="submit" className="bg-gradient-to-r from-[#fe3976] to-[#fc63c9] text-white px-6 font-semibold py-3 rounded-md">Submit</button>
-                    <button onClick={handleClearFields} className="text-red-500">Clear all fields</button>
-                    <button onClick={handleFindAddress} className="text-blue-500">Can't find my address?</button>
+                    <button type="submit" className="bg-gradient-to-r from-[#fe3976] to-[#fc63c9] text-white px-6 font-semibold lg:py-3 rounded-md">Submit</button>
+                    <button onClick={handleClearFields} className="bg-gray-500 text-white px-6 font-semibold lg:py-3 rounded-md">Clear Fields</button>
+                    <button onClick={handleFindAddress} className="bg-blue-500 text-white px-6 lg:font-semibold lg:py-3 rounded-md">Can't find my address?</button>
                 </div>
             </form>
+            <ToastContainer /> {/* Add ToastContainer here */}
         </div>
     );
 };

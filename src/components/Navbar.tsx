@@ -7,7 +7,7 @@ import getUser from "@/hooks/useAuth";
 import { removeDataInCookies } from "@/Global/(cockies)/setCoockies";
 import Image from "next/image";
 import { MdOutlineMailOutline, MdOutlinePhoneEnabled } from "react-icons/md";
-// import logo from "../../public/dat9.webp"
+import logo from "../assets/Logo_2-removebg-preview (1).png"
 
 const Navbar = () => {
   const [user, setUser] = useState<any>(null);
@@ -49,13 +49,20 @@ const Navbar = () => {
   return (
     <nav className=" absolute z-50 m-4 top-0 left-0 right-0 rounded-xl items-center p-4 bg-white">
 
-      <div className="flex items-center justify-between px-40">
-        <p className="font-semibold text-5xl">
-          <Link href="/">Redux</Link></p>
-        <ul className="flex items-center gap-10">
+      <div className="flex flex-col lg:flex-row items-center justify-between lg:px-40">
+        <div className=" flex  items-center gap-4 ">
+          <Link className="w-[50px] lg:w-[100%]" href="/">
+            <Image height="60" width="60" src={logo} alt="logo" />
+          </Link>
+          <div className="">
+            <h2 className="font-semibold text-2xl lg:text-4xl">MIAMI</h2>
+            <p className="w-[200px] text-sm font-semibold">PROPERTY TEXAS</p>
+          </div>
+        </div>
+        <ul className="  hidden lg:flex items-center gap-10">
           <li className="flex gap-2 items-center"><MdOutlineMailOutline size={25} color="black" /> info@abcd.com</li>
           <li className="flex gap-2 items-center"><MdOutlinePhoneEnabled size={25} color="black" />
-          (301) 123456</li>
+            (301) 123456</li>
         </ul>
         {/* <Image
           src={logo}

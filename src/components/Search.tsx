@@ -100,8 +100,8 @@ const Search: React.FC = () => {
         style={gradientStyle}
         className="bg-no-repeat bg-cover px-10 pt-56 pb-36 relative"
       >
-        <h1 style={{ lineHeight: '1.2' }} className="text-2xl lg:text-6xl font-[600] uppercase text-white text-center pb-10">
-          Our software finds that 1 in 6 Florida homeowners are paying too much in property
+        <h1 style={{ lineHeight: '1.2' }} className="text-2xl lg:text-4xl font-[600] uppercase text-white text-center pb-10">
+          Our software finds that 1 in 6 Florida homeowners <br/> are paying too much in property
         </h1>
         <p className="text-md lg:text-xl font-[400] text-white text-center pb-10 leading-tight">
           Let our team of tax experts appeal your home assessment.
@@ -111,7 +111,7 @@ const Search: React.FC = () => {
         <div className="flex justify-center">
           <form onSubmit={handleGoClick} className="relative w-full max-w-2xl">
             <div className="flex space-x-4">
-              <div className="flex w-full gap-4 rounded-md overflow-hidden">
+              <div className="flex flex-col justify-center lg:flex-row w-full gap-4 rounded-md overflow-hidden">
                 <input
                   type="text"
                   value={inputValue}
@@ -119,7 +119,7 @@ const Search: React.FC = () => {
                   onKeyDown={handleKeyDown}
                   placeholder="Enter Your Property address"
                   ref={searchInputRef}
-                  className="w-full outline-none border-2 focus:border-[#fe3976] rounded-md px-5"
+                  className="w-full outline-none border-2 py-2 focus:border-[#fe3976] rounded-md px-5"
                 />
                 <button
                   type="submit"
