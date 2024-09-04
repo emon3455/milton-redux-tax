@@ -1,17 +1,31 @@
 "use client";
+
 import React, { useState, FormEvent, ChangeEvent, useRef, useEffect } from "react";
 import { useJsApiLoader } from "@react-google-maps/api";
-// import Card from "./Card";
-import bg from "../assets/10.jpg"
+import { useAppSelector } from "@/Redux/hooks";
+import { useDispatch } from "react-redux";
+import { addressAction } from "@/Redux/Features/address/addressSlice";
+import { useRouter } from 'next/navigation';
 
 const libraries: ("places")[] = ["places"];
 
 const Search: React.FC = () => {
-  const [inputValue, setInputValue] = useState<string>("");
+
   const [error, setError] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const resultRef = useRef<HTMLDivElement>(null);
+  const [inputValue, setInputValue] = useState<string>("");
+
+  // const addressInfo = useAppSelector(
+  //   (state) => state.addressSlice.addressInfo
+  // );
+  // console.log("addressInfo: ",addressInfo);
+
+  const dispatch = useDispatch();
+  const router = useRouter();
+
 
   // Load Google Maps API
   const { isLoaded } = useJsApiLoader({
@@ -30,9 +44,13 @@ const Search: React.FC = () => {
       );
       autocompleteRef.current.addListener("place_changed", () => {
         const place = autocompleteRef.current?.getPlace();
-        if (place) {
+        if (place && place.geometry) {
+          dispatch(addressAction(place));
+          setData(place);
           setInputValue(place.formatted_address || "");
           setError(false);
+          setErrorMessage("");
+          router.push('/application-form');
         }
       });
     }
@@ -40,28 +58,29 @@ const Search: React.FC = () => {
 
   const handleGoClick = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     if (inputValue.trim() === "") {
       setError(true);
+      setErrorMessage("Enter address for search");
+    } else if (!data || !data.geometry) {
+      setError(true);
+      setErrorMessage("Please enter a valid address from the suggestions");
     } else {
       setError(false);
-      // API call only happens here
+      setErrorMessage("");
+      // Proceed with the valid data
     }
-  };
-
-  const handleClearClick = () => {
-    setInputValue("");
-    setError(false);
-    setData(null); // Clear the data when clearing the input
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
+    setData(null); // Reset data when the input changes
     if (error && e.target.value.trim() !== "") {
       setError(false);
+      setErrorMessage("");
     }
   };
 
-  // Prevent form submission when Enter is pressed in the input
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       e.preventDefault(); // Prevents form submission
@@ -73,7 +92,6 @@ const Search: React.FC = () => {
     backgroundSize: "cover",
     backgroundBlendMode: "overlay",
     backgroundPosition: "bottom",
-
   };
 
   return (
@@ -82,22 +100,18 @@ const Search: React.FC = () => {
         style={gradientStyle}
         className="bg-no-repeat bg-cover px-10 pt-56 pb-36 relative"
       >
-        <h1 style={{lineHeight: '1.2'}} className="text-2xl lg:text-6xl   font-[600] uppercase text-white text-center pb-10 ">
-          Our software finds that 1 in 6 Florida homeowners are paying too much in property
+        <h1 style={{ lineHeight: '1.2' }} className="text-2xl lg:text-4xl font-[600] uppercase text-white text-center pb-10">
+          Our software finds that 1 in 6 Florida homeowners <br/> are paying too much in property
         </h1>
         <p className="text-md lg:text-xl font-[400] text-white text-center pb-10 leading-tight">
           Let our team of tax experts appeal your home assessment.
           We only get paid if you win.
-
         </p>
 
         <div className="flex justify-center">
           <form onSubmit={handleGoClick} className="relative w-full max-w-2xl">
-            {/* <p className="text-white font-semibold mb-3">
-              Search Your Property by Address
-            </p> */}
             <div className="flex space-x-4">
-              <div className="flex w-full gap-4 rounded-md overflow-hidden">
+              <div className="flex flex-col justify-center lg:flex-row w-full gap-4 rounded-md overflow-hidden">
                 <input
                   type="text"
                   value={inputValue}
@@ -105,7 +119,7 @@ const Search: React.FC = () => {
                   onKeyDown={handleKeyDown}
                   placeholder="Enter Your Property address"
                   ref={searchInputRef}
-                  className="w-full outline-none border-2 focus:border-[#fe3976] rounded-md px-5"
+                  className="w-full outline-none border-2 py-2 focus:border-[#fe3976] rounded-md px-5"
                 />
                 <button
                   type="submit"
@@ -113,15 +127,7 @@ const Search: React.FC = () => {
                 >
                   Search
                 </button>
-
               </div>
-              {/* <button
-                type="button"
-                onClick={handleClearClick}
-                className="bg-white px-6 text-lg font-semibold py-4 rounded-md"
-              >
-                Clear
-              </button> */}
             </div>
             {error && (
               <div className="absolute top-full left-0 mt-2 w-full flex">
@@ -141,7 +147,7 @@ const Search: React.FC = () => {
                     />
                   </svg>
                   <p className="text-red-500 text-lg">
-                    Search query is required
+                    {errorMessage}
                   </p>
                 </div>
               </div>
@@ -149,12 +155,6 @@ const Search: React.FC = () => {
           </form>
         </div>
       </div>
-      <style>
-
-      </style>
-      {/* <div ref={resultRef} className="container mx-auto p-4">
-        <Card data={data} loading={loading} />
-      </div> */}
     </div>
   );
 };
