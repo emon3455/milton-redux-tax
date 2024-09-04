@@ -14,14 +14,8 @@ const Search: React.FC = () => {
   const [error, setError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [data, setData] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(false);
-  const resultRef = useRef<HTMLDivElement>(null);
   const [inputValue, setInputValue] = useState<string>("");
 
-  // const addressInfo = useAppSelector(
-  //   (state) => state.addressSlice.addressInfo
-  // );
-  // console.log("addressInfo: ",addressInfo);
 
   const dispatch = useDispatch();
   const router = useRouter();
@@ -30,7 +24,7 @@ const Search: React.FC = () => {
   // Load Google Maps API
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyBC9ytu3b3UnI1x1BTW_c1mIUU_TxXEmYA", // Replace with your API key
+    googleMapsApiKey: "AIzaSyDV1I-VK7KrnnU78YxHp6qgmyw5CP0UwG0", // Replace with your API key
     libraries,
   });
 
@@ -54,7 +48,7 @@ const Search: React.FC = () => {
         }
       });
     }
-  }, [isLoaded]);
+  }, [isLoaded,dispatch,router]);
 
   const handleGoClick = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

@@ -3,8 +3,8 @@ import React, { useState, useEffect, MouseEvent, FormEvent } from 'react';
 import { useJsApiLoader } from '@react-google-maps/api';
 import { useAppSelector } from '@/Redux/hooks';
 import MapPhoto from './MapPhoto';
-import { ToastContainer, toast } from 'react-toastify'; // Import Toastify components
-import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
+import { errorAlert, successAlert } from '@/utils/alert-function';
+import { useRouter } from 'next/navigation';
 
 const libraries: Array<"places"> = ["places"];
 
@@ -26,9 +26,11 @@ const ApplicationForm: React.FC = () => {
     const [sendTextUpdates, setSendTextUpdates] = useState<boolean>(false);
     const [autocompleteInstances, setAutocompleteInstances] = useState<google.maps.places.Autocomplete[]>([]);
 
+    const router = useRouter();
+
     const { isLoaded } = useJsApiLoader({
         id: "google-map-script",
-        googleMapsApiKey: "AIzaSyBC9ytu3b3UnI1x1BTW_c1mIUU_TxXEmYA", // Replace with your API key
+        googleMapsApiKey: "AIzaSyDV1I-VK7KrnnU78YxHp6qgmyw5CP0UwG0",
         libraries,
     });
 
@@ -84,7 +86,7 @@ const ApplicationForm: React.FC = () => {
 
     const handleFindAddress = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        // Add logic for "Can't find my address?" functionality
+        router.push('/');
     };
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -110,17 +112,22 @@ const ApplicationForm: React.FC = () => {
             });
 
             if (response.ok) {
-                toast.success('Form submitted successfully!.');
-            } else {
-                toast.error('Form submission failed. Please try again.');
+                successAlert({
+                    title: "Form Submitted Successfully!",
+                    text: "Your information successfully saved we will reach you shortly!",
+                })
             }
         } catch (error) {
-            toast.error("Something Went Wrong");
+            console.log(error);
+            errorAlert({
+                title: "Form submission failed!",
+                text: "Something went wrong! Please try again.",
+            })
         }
     };
 
     return (
-        <div className="p-6 max-w-4xl mx-auto">
+        <div className="p-6 max-w-6xl mx-auto">
             <h2 className="text-2xl font-semibold text-gray-800">Application</h2>
             <div className="w-16 h-1 bg-blue-400 mt-2 mb-6"></div>
 
@@ -130,7 +137,7 @@ const ApplicationForm: React.FC = () => {
                         <input
                             required
                             type="text"
-                            placeholder="First Name"
+                            placeholder="First Name*"
                             value={firstName}
                             onChange={(e) => setFirstName(e.target.value)}
                             className="w-full outline-none border-2 focus:border-[#fe3976] rounded-md py-3 px-5"
@@ -138,7 +145,7 @@ const ApplicationForm: React.FC = () => {
                         <input
                             required
                             type="text"
-                            placeholder="Last Name"
+                            placeholder="Last Name*"
                             value={lastName}
                             onChange={(e) => setLastName(e.target.value)}
                             className="w-full outline-none border-2 focus:border-[#fe3976] rounded-md py-3 px-5"
@@ -146,7 +153,7 @@ const ApplicationForm: React.FC = () => {
                         <input
                             required
                             type="text"
-                            placeholder="Mobile Phone"
+                            placeholder="Mobile Phone*"
                             value={mobilePhone}
                             onChange={(e) => setMobilePhone(e.target.value)}
                             className="w-full outline-none border-2 focus:border-[#fe3976] rounded-md py-3 px-5"
@@ -161,7 +168,6 @@ const ApplicationForm: React.FC = () => {
                             <label className="">Send me text updates.</label>
                         </div>
                         <input
-                            required
                             type="text"
                             placeholder="Alternate Phone (Optional)"
                             value={alternatePhone}
@@ -169,15 +175,13 @@ const ApplicationForm: React.FC = () => {
                             className="w-full outline-none border-2 focus:border-[#fe3976] rounded-md py-3 px-5"
                         />
                         <input
-                            required
                             type="email"
-                            placeholder="Email"
+                            placeholder="Email*"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             className="w-full outline-none border-2 focus:border-[#fe3976] rounded-md py-3 px-5"
                         />
                         <input
-                            required
                             type="text"
                             placeholder="PIN Code (Optional)"
                             value={pinCode}
@@ -229,7 +233,6 @@ const ApplicationForm: React.FC = () => {
                     <button onClick={handleFindAddress} className="bg-blue-500 text-white px-6 lg:font-semibold lg:py-3 rounded-md">Can not find my address?</button>
                 </div>
             </form>
-            <ToastContainer /> {/* Add ToastContainer here */}
         </div>
     );
 };
