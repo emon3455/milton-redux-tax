@@ -112,11 +112,11 @@ const Search: React.FC = () => {
                   onKeyDown={handleKeyDown}
                   placeholder="Enter Your Property address"
                   ref={searchInputRef}
-                  className="w-full outline-none border-2 py-2 focus:border-[#fe3976] rounded-md px-5"
+                  className="w-full outline-none border-2 py-2 focus:border-[#39cbce] rounded-md px-5"
                 />
                 <button
                   type="submit"
-                  className="bg-gradient-to-r from-[#fe3976] to-[#fc63c9] text-white px-6 text-lg font-semibold py-3 rounded-md"
+                  className="bg-gradient-to-r from-[#9b65e7] to-[#39cbce] text-white px-6 text-lg font-semibold py-3 rounded-md"
                 >
                   Search
                 </button>

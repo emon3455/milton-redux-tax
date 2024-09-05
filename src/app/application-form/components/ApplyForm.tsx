@@ -140,7 +140,7 @@ const ApplicationForm: React.FC = () => {
                             placeholder="First Name*"
                             value={firstName}
                             onChange={(e) => setFirstName(e.target.value)}
-                            className="w-full outline-none border-2 focus:border-[#fe3976] rounded-md py-3 px-5"
+                            className="w-full outline-none border-2 focus:border-[#39cbce] rounded-md py-3 px-5"
                         />
                         <input
                             required
@@ -148,7 +148,7 @@ const ApplicationForm: React.FC = () => {
                             placeholder="Last Name*"
                             value={lastName}
                             onChange={(e) => setLastName(e.target.value)}
-                            className="w-full outline-none border-2 focus:border-[#fe3976] rounded-md py-3 px-5"
+                            className="w-full outline-none border-2 focus:border-[#39cbce] rounded-md py-3 px-5"
                         />
                         <input
                             required
@@ -156,7 +156,7 @@ const ApplicationForm: React.FC = () => {
                             placeholder="Mobile Phone*"
                             value={mobilePhone}
                             onChange={(e) => setMobilePhone(e.target.value)}
-                            className="w-full outline-none border-2 focus:border-[#fe3976] rounded-md py-3 px-5"
+                            className="w-full outline-none border-2 focus:border-[#39cbce] rounded-md py-3 px-5"
                         />
                         <div className="flex items-center space-x-2">
                             <input
@@ -172,21 +172,21 @@ const ApplicationForm: React.FC = () => {
                             placeholder="Alternate Phone (Optional)"
                             value={alternatePhone}
                             onChange={(e) => setAlternatePhone(e.target.value)}
-                            className="w-full outline-none border-2 focus:border-[#fe3976] rounded-md py-3 px-5"
+                            className="w-full outline-none border-2 focus:border-[#39cbce] rounded-md py-3 px-5"
                         />
                         <input
                             type="email"
                             placeholder="Email*"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full outline-none border-2 focus:border-[#fe3976] rounded-md py-3 px-5"
+                            className="w-full outline-none border-2 focus:border-[#39cbce] rounded-md py-3 px-5"
                         />
                         <input
                             type="text"
                             placeholder="PIN Code (Optional)"
                             value={pinCode}
                             onChange={(e) => setPinCode(e.target.value)}
-                            className="w-full outline-none border-2 focus:border-[#fe3976] rounded-md py-3 px-5"
+                            className="w-full outline-none border-2 focus:border-[#39cbce] rounded-md py-3 px-5"
                         />
                     </div>
 
@@ -200,13 +200,13 @@ const ApplicationForm: React.FC = () => {
                                     placeholder="Enter Your Property Address"
                                     value={property}
                                     onChange={(e) => handlePropertyChange(index, e.target.value)}
-                                    className="w-full outline-none border-2 focus:border-[#fe3976] rounded-md py-3 px-5"
+                                    className="w-full outline-none border-2 focus:border-[#39cbce] rounded-md py-3 px-5"
                                 />
                                 {index === propertyFields.length - 1 && (
                                     <button
                                         type="button"
                                         onClick={addPropertyField}
-                                        className="bg-gradient-to-r from-[#fe3976] to-[#fc63c9] text-white px-6 font-semibold py-3 rounded-md"
+                                        className="bg-gradient-to-r from-[#9b65e7] to-[#39cbce] text-white px-6 font-semibold py-3 rounded-md"
                                     >
                                         + Add Another Property
                                     </button>
@@ -228,7 +228,7 @@ const ApplicationForm: React.FC = () => {
                 addressInfo && <MapPhoto address={addressInfo?.formatted_address} map={addressInfo?.url}/>
                 }
                 <div className="flex mt-4 space-x-4">
-                    <button type="submit" className="bg-gradient-to-r from-[#fe3976] to-[#fc63c9] text-white px-6 font-semibold lg:py-3 rounded-md">Submit</button>
+                    <button type="submit" className="bg-gradient-to-r from-[#9b65e7] to-[#39cbce] text-white px-6 font-semibold lg:py-3 rounded-md">Submit</button>
                     <button onClick={handleClearFields} className="bg-gray-500 text-white px-6 font-semibold lg:py-3 rounded-md">Clear Fields</button>
                     <button onClick={handleFindAddress} className="bg-blue-500 text-white px-6 lg:font-semibold lg:py-3 rounded-md">Can not find my address?</button>
                 </div>

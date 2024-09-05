@@ -73,7 +73,7 @@ const Steps = () => {
             <h1 className='text-4xl font-extrabold'>Step 4</h1>
             <p className='text-xl font-medium'>Once Your Appeal Gets Accepted, We Split the Profits.</p>
             <p className='text-gray-500'>If you already paid your taxes in full prior to our appeal being processed, you will receive a refund check. If your appeal was accepted prior to your due date, you will receive a final adjusted bill.</p>
-            <p className='text-gray-500'><span className='font-bold text-pink-500'>Find out for free if you overpaid.</span> Only pay us if you save money! No Reduction. No Fee.</p>
+            <p className='text-gray-500'><span className='font-bold text-violet-500'>Find out for free if you overpaid.</span> Only pay us if you save money! No Reduction. No Fee.</p>
         </div>
       </article>
     </section>

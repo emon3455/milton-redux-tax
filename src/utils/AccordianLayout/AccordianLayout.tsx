@@ -36,8 +36,8 @@ const AccordionLayout = ({
           rounded-lg transition-all duration-500 ease-in-out
             ${
               activeIndex === index
-                ? "bg-cyan-950 text-white"
-                : "bg-cyan-600 text-black"
+                ? "bg-violet-300 text-white"
+                : "bg-sky-400 text-black"
             }
           `}
           onClick={() => handleSetIndex(index)}
