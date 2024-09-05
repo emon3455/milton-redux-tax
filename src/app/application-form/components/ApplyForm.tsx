@@ -5,10 +5,12 @@ import { useAppSelector } from '@/Redux/hooks';
 import MapPhoto from './MapPhoto';
 import { errorAlert, successAlert } from '@/utils/alert-function';
 import { useRouter } from 'next/navigation';
+import CButton from '@/utils/CButton/CButton';
 
 const libraries: Array<"places"> = ["places"];
 
 const ApplicationForm: React.FC = () => {
+  const [loading, setLoading] = useState(false);
     const addressInfo = useAppSelector(
         (state) => state.addressSlice.addressInfo
     );
@@ -90,6 +92,7 @@ const ApplicationForm: React.FC = () => {
     };
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        setLoading(true);
         e.preventDefault();
         const formData = {
             firstName,
@@ -123,6 +126,9 @@ const ApplicationForm: React.FC = () => {
                 title: "Form submission failed!",
                 text: "Something went wrong! Please try again.",
             })
+        }
+        finally{
+          setLoading(false)
         }
     };
 
@@ -228,9 +234,17 @@ const ApplicationForm: React.FC = () => {
                 addressInfo && <MapPhoto address={addressInfo?.formatted_address} map={addressInfo?.url}/>
                 }
                 <div className="flex mt-4 space-x-4">
-                    <button type="submit" className="bg-gradient-to-r from-[#9b65e7] to-[#39cbce] text-white px-6 font-semibold lg:py-3 rounded-md">Submit</button>
-                    <button onClick={handleClearFields} className="bg-gray-500 text-white px-6 font-semibold lg:py-3 rounded-md">Clear Fields</button>
-                    <button onClick={handleFindAddress} className="bg-blue-500 text-white px-6 lg:font-semibold lg:py-3 rounded-md">Can not find my address?</button>
+                    <CButton
+                      variant="solid"
+                      type='submit'
+                      className='bg-gradient-to-r from-[#9b65e7] to-[#39cbce] text-white px-6  font-semibold lg:py-2 rounded-lg'
+                      fontSize="text-lg"
+                      loading={loading}
+                    >
+                      Submit
+                    </CButton>
+                    <button onClick={handleClearFields} className="bg-gray-500 text-white px-4 font-semibold lg:py-2 rounded-sm">Clear Fields</button>
+                    <button onClick={handleFindAddress} className="bg-blue-500 text-white px-6 lg:font-semibold lg:py-2 rounded-sm">Can not find my address?</button>
                 </div>
             </form>
         </div>

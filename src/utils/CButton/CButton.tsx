@@ -71,7 +71,6 @@ const CButton = ({
               focus:ring-warning
               focus:ring-opacity-50
 
-
             ${fullWidth ? "w-full" : ""}
             ${textUpperCased ? "uppercase" : ""}
             ${
