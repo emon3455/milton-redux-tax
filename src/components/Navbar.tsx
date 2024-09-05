@@ -47,8 +47,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className=" absolute z-50 m-4 top-0 left-0 right-0 rounded-xl items-center p-4 bg-white">
-
+    <nav className="absolute z-50 m-4 top-0 left-0 right-0 rounded-xl items-center p-4 bg-white">
       <div className="flex flex-col lg:flex-row items-center justify-between lg:px-40">
         <div className=" flex  items-center gap-4 ">
           <Link className="w-[50px] lg:w-[100%]" href="/">

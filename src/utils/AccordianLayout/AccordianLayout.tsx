@@ -33,7 +33,7 @@ const AccordionLayout = ({
         <div
           className={`
            w-full flex flex-row justify-between items-center px-5 py-3 cursor-pointer
-          rounded-lg transition-all duration-500 ease-in-out 
+          rounded-lg transition-all duration-500 ease-in-out
             ${
               activeIndex === index
                 ? "bg-cyan-950 text-white"
@@ -51,7 +51,7 @@ const AccordionLayout = ({
         </div>
         {activeIndex === index && (
           <div
-            className="w-full flex flex-col justify-center  px-5 py-8 bg-white
+            className="w-full flex flex-col justify-center  px-3 py-4 bg-white
           transition-all duration-500 ease-in-out rounded-b-lg shadow-xl"
             style={{
               height: "auto",

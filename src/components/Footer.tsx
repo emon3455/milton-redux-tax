@@ -40,11 +40,11 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className="lg:mx-auto text-left">
-                        <h4 className="text-lg text-white font-medium mb-7">Blogs</h4>
+                        <h4 className="text-lg text-white font-medium mb-7">Legal</h4>
                         <ul className="text-sm  transition-all duration-500">
-                            <li className="mb-6"><a href="#" className="text-white hover:text-white">News</a></li>
-                            <li className="mb-6"><a href="#" className=" text-white hover:text-white">Tips & Tricks</a></li>
-                            <li><a href="#" className=" text-white hover:text-white">Events</a></li>
+                            <li className="mb-6"><a href="#" className="text-white hover:text-white">Privacy Policy</a></li>
+                            <li className="mb-6"><a href="#" className=" text-white hover:text-white">Terms and Conditons</a></li>
+                            <li><a href="#" className=" text-white hover:text-white">Disclaimer</a></li>
                         </ul>
                     </div>
                 </div>
