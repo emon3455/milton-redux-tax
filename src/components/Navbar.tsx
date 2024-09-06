@@ -11,7 +11,7 @@ const Navbar = () => {
   // Handle scroll event
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 600) {
+      if (window.scrollY > 550) {
         setIsTransparent(false);
       } else {
         setIsTransparent(true);
@@ -25,7 +25,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed z-50 top-0 left-0 right-0 items-center p-4 ${isTransparent ? 'bg-transparent' : 'bg-white'} transition-colors duration-300 shadow-xl`}>
+    <nav className={`fixed z-50 top-0 left-0 right-0 items-center p-4 ${isTransparent ? 'bg-transparent text-white' : 'bg-white text-black'} transition-colors duration-300 shadow-2xl`}>
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between lg:px-40">
         <div className="flex items-center gap-4">
           <Link href="/">
