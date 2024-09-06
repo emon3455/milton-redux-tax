@@ -13,10 +13,22 @@ const config: Config = {
         secondary: "#00904B",
         error: "#F44336",
         warning: "#FFC107",
-        primary:'red'
+        primary: 'red',
+      },
+      keyframes: {
+        bgChange: {
+          '0%': { backgroundImage: "url('/path/to/image1.jpg')" },
+          '33%': { backgroundImage: "url('/path/to/image2.jpg')" },
+          '66%': { backgroundImage: "url('/path/to/image3.jpg')" },
+          '100%': { backgroundImage: "url('/path/to/image1.jpg')" }, // Loop back to the first image
+        },
+      },
+      animation: {
+        bgChange: 'bgChange 10s infinite ease-in-out', // 10s duration for the background change
       },
     },
   },
   plugins: [],
 };
+
 export default config;
