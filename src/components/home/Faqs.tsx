@@ -19,7 +19,7 @@ const accordionoptions = [
 const Faqs = () => {
   const [accordionIndex, setAccordionIndex] = useState<number>(0);
   return (
-    <section className='max-w-5xl mx-auto mt-16 bg-white p-4 space-y-5'>
+    <section className='max-w-7xl mx-auto mt-16 bg-white p-4 space-y-5'>
       <h2 className='text-4xl font-extrabold text-center my-16'>Things You Need To know</h2>
       <div className="flex justify-between flex-col lg:flex-row items-center gap-20">
         <div className="w-full lg:w-1/2">
@@ -28,7 +28,7 @@ const Faqs = () => {
               height="200"
               width="500"
               alt="faq"
-              className='mx-auto'
+              className='mr-auto'
             />
         </div>
         <div className="w-full lg:w-1/2">

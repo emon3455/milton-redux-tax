@@ -9,13 +9,13 @@ const Footer = () => {
             <div className="mx-auto  px-4 sm:px-6 lg:px-20">
                 <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-8 py-10 max-sm:max-w-sm max-sm:mx-auto gap-y-8">
                     <div className="col-span-full justify-self-start mb-10 lg:col-span-2 lg:mb-0">
-                        <div className=" flex justify-start gap-2 items-center ">
-                            <Link className="w-[50px] lg:w-[100%]" href="/">
-                                <Image height="80" width="80" src={logo} alt="logo" />
+                        <div className=" flex  items-center gap-4 text-white">
+                            <Link className="" href="/">
+                                <Image height="60" width="60" src={logo} alt="logo" />
                             </Link>
-                            <div className="text-white">
+                            <div className="">
                                 <h2 className="font-semibold text-2xl lg:text-4xl">MIAMI</h2>
-                                <p className="w-[200px] text-sm font-semibold">PROPERTY TEXAS</p>
+                                <p className="text-sm font-semibold">PROPERTY TAXES</p>
                             </div>
                         </div>
                         <p className="py-8 text-sm text-white lg:max-w-xs lg:text-left">Trusted in more than 100 countries & 5 million customers. Have any query ?</p>

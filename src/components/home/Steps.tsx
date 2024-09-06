@@ -8,72 +8,71 @@ import step4 from "../../assets/step4.png"
 
 const Steps = () => {
   return (
-    <section className='max-w-5xl mx-auto mt-16 bg-white p-4 space-y-5'>
-      <h1 className='text-center font-extrabold text-4xl mb-16'>Four Step Process To Save You Money on Your Taxes</h1>
-      <article className='flex flex-col-reverse lg:flex-row justify-between items-center my-16 gap-10'>
-        <div className="w-full lg:w-1/2 space-y-5">
-            <h1 className='text-3xl font-extrabold'>Step 1</h1>
-            <p className='text-xl font-medium'>Submit Your Address</p>
-            <p className='text-gray-500'>We make it simple. Complete our quick & easy application online and our team takes it from there.</p>
-        </div>
-        <div className="w-full lg:w-1/2">
+    <section className='max-w-7xl mx-auto w-full mt-10 bg-white p-6 space-y-5'>
+      <h3 className='text-center font-semibold text-2xl text-red-500'>Simple Steps to Manage Your Property Taxes</h3>
+      <h1 className='text-center font-light text-5xl'>How It Works</h1>
+      <article className='flex flex-col-reverse lg:flex-row justify-between items-center mb-16 gap-10'>
+        <div className="w-full lg:w-2/3">
             <Image
               src={step1}
               height="100"
               width="400"
               alt="step1"
-              className='mx-auto'
+              className='mr-auto'
             />
+        </div>
+        <div className="w-full lg:w-1/2 space-y-5">
+            <h1 className='text-3xl font-light text-red-500'>Step 1</h1>
+            <p className='text-4xl font-medium'>Submit Your Information</p>
+            <p className='text-gray-500'>Provide your property details and tax documents through our secure portal. We confirm receipt and ensure all required information is complete.</p>
         </div>
       </article>
       <article className='flex flex-col lg:flex-row justify-between items-center my-16 gap-10'>
-        <div className="w-full lg:w-1/2">
+        <div className="w-full lg:w-1/2 space-y-5">
+            <h1 className='text-3xl font-light text-red-500'>Step 2</h1>
+            <p className='text-4xl font-medium'>Review and Analysis</p>
+            <p className='text-gray-500'>Our team assesses your tax situation for accuracy and savings opportunities. Receive a detailed review and recommendations for your property taxes.</p>
+        </div>
+        <div className="w-full lg:w-2/3">
             <Image
               src={step2}
               height="100"
               width="400"
               alt="step2"
-              className='mx-auto'
+              className='ml-auto'
             />
-        </div>
-        <div className="w-full lg:w-1/2 space-y-5">
-            <h1 className='text-3xl font-extrabold'>Step 2</h1>
-            <p className='text-xl font-medium'>We Check If You Overpaid</p>
-            <p className='text-gray-500'>Our proprietary software sifts through millions of data points, aggregating all relevant information. This ensures we cover every detail when submitting your case.</p>
         </div>
       </article>
       <article className='flex flex-col-reverse lg:flex-row justify-between items-center my-16 gap-10'>
-        <div className="w-full lg:w-1/2 space-y-5">
-            <h1 className='text-3xl font-extrabold'>Step 3</h1>
-            <p className='text-xl font-medium'>We Submit an Appeal on Your Behalf</p>
-            <p className='text-gray-500'>Next, our dedicated tax professionals strategize, prepare, and submit a thorough appeal with supporting evidence at our own expense.</p>
-            <p className='text-gray-500'>Once your application is submitted, we maintain open communication with the county and advocate on your behalf to ensure the success of your case.</p>
-        </div>
         <div className="w-full lg:w-1/2">
             <Image
               src={step3}
               height="100"
               width="400"
               alt="step3"
-              className='mx-auto'
+              className='mr-auto'
             />
+        </div>
+        <div className="w-full lg:w-1/2 space-y-5">
+            <h1 className='text-3xl font-light text-red-500'>Step 3</h1>
+            <p className='text-4xl font-medium'>File Your Taxes</p>
+            <p className='text-gray-500'>We make the filing of taxes easy. Our experts ensure accuracy and compliance and maximize your deductions for the best financial outcome.</p>
         </div>
       </article>
       <article className='flex flex-col lg:flex-row justify-between items-center mt-16 gap-10'>
+        <div className="w-full lg:w-1/2 space-y-5">
+            <h1 className='text-3xl font-light text-red-500'>Step 4</h1>
+            <p className='text-4xl font-medium'>Receive Updates</p>
+            <p className='text-gray-500'>Stay informed with regular updates on your tax filing status. Get support for any follow-up actions and enjoy peace of mind.</p>
+        </div>
         <div className="w-full lg:w-1/2">
             <Image
               src={step4}
               height="100"
               width="400"
               alt="step4"
-              className='mx-auto'
+              className='ml-auto'
             />
-        </div>
-        <div className="w-full lg:w-1/2 space-y-5">
-            <h1 className='text-4xl font-extrabold'>Step 4</h1>
-            <p className='text-xl font-medium'>Once Your Appeal Gets Accepted, We Split the Profits.</p>
-            <p className='text-gray-500'>If you already paid your taxes in full prior to our appeal being processed, you will receive a refund check. If your appeal was accepted prior to your due date, you will receive a final adjusted bill.</p>
-            <p className='text-gray-500'><span className='font-bold text-violet-500'>Find out for free if you overpaid.</span> Only pay us if you save money! No Reduction. No Fee.</p>
         </div>
       </article>
     </section>
