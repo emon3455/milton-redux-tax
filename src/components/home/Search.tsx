@@ -5,6 +5,10 @@ import { useJsApiLoader } from "@react-google-maps/api";
 import { useDispatch } from "react-redux";
 import { addressAction } from "@/Redux/Features/address/addressSlice";
 import { useRouter } from 'next/navigation';
+import image1 from "../../assets/banner1.jpg"
+import image2 from "../../assets/banner2.jpg"
+import image3 from "../../assets/banner3.jpg"
+import image4 from "../../assets/banner4.jpg"
 
 const libraries: ("places")[] = ["places"];
 
@@ -14,10 +18,13 @@ const Search: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [data, setData] = useState<any>(null);
   const [inputValue, setInputValue] = useState<string>("");
-
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const dispatch = useDispatch();
   const router = useRouter();
+
+
+  const images = [image1.src, image2.src, image3.src, image4.src];
 
 
   // Load Google Maps API
@@ -29,6 +36,14 @@ const Search: React.FC = () => {
 
   const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, [images.length]);
 
   useEffect(() => {
     if (isLoaded && searchInputRef.current) {
@@ -80,11 +95,11 @@ const Search: React.FC = () => {
     }
   };
 
-  const gradientStyle: React.CSSProperties = {
-    background: `url('https://i.ibb.co/55skbHM/10.jpg'), linear-gradient(to top, rgba(0, 0, 0, 0.212), rgba(0, 0, 0, 0))`,
-    backgroundSize: "cover",
-    backgroundBlendMode: "overlay",
-    backgroundPosition: "bottom",
+  const gradientStyle = {
+    background: `url(${images[currentImageIndex]}), linear-gradient(to top, rgba(0, 0, 0, 0.999), rgba(0, 0, 0, 0.578))`,
+    backgroundSize: 'cover',
+    backgroundBlendMode: 'overlay',
+    backgroundPosition: 'bottom',
   };
 
   return (
@@ -94,11 +109,11 @@ const Search: React.FC = () => {
         className="bg-no-repeat bg-cover px-10 pt-56 pb-36 relative"
       >
         <h1 style={{ lineHeight: '1.2' }} className="text-2xl lg:text-4xl font-[600] uppercase text-white text-center pb-10">
-          Our software finds that 1 in 6 Florida homeowners <br/> are paying too much in property
+          Your Trusted Partner in Property <br />
+          Tax Management
         </h1>
         <p className="text-md lg:text-xl font-[400] text-white text-center pb-10 leading-tight">
-          Let our team of tax experts appeal your home assessment.
-          We only get paid if you win.
+          At <span className="text-red-500">Miami Property Taxes</span>, we streamline your property tax process, ensuring accuracy and peace of mind. Our expertise helps you navigate assessments, appeals, and payments with ease.
         </p>
 
         <div className="flex justify-center">
