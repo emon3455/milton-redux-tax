@@ -58,11 +58,11 @@ const Search: React.FC = () => {
           setInputValue(place.formatted_address || "");
           setError(false);
           setErrorMessage("");
-          router.push('/application-form');
+        
         }
       });
     }
-  }, [isLoaded,dispatch,router]);
+  }, [isLoaded, dispatch, router]);
 
   const handleGoClick = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -76,6 +76,7 @@ const Search: React.FC = () => {
     } else {
       setError(false);
       setErrorMessage("");
+      router.push('/application-form');
       // Proceed with the valid data
     }
   };
@@ -96,7 +97,7 @@ const Search: React.FC = () => {
   };
 
   const gradientStyle = {
-    background: `url(${images[currentImageIndex]}), linear-gradient(to top, rgba(0, 0, 0, 0.999), rgba(0, 0, 0, 0.578))`,
+    background: `url(${images[currentImageIndex]}), linear-gradient(to top, rgba(0, 0, 0, 0.288), rgba(0, 0, 0, 0.578))`,
     backgroundSize: 'cover',
     backgroundBlendMode: 'overlay',
     backgroundPosition: 'bottom',
@@ -113,7 +114,7 @@ const Search: React.FC = () => {
           Tax Management
         </h1>
         <p className="text-md lg:text-xl font-[400] text-white text-center pb-10 leading-tight">
-          At <span className="text-red-500">Miami Property Taxes</span>, we streamline your property tax process, ensuring accuracy and peace of mind. Our expertise helps you navigate assessments, appeals, and payments with ease.
+          At <span className="text-red-500">Miami Property Taxes</span>, we streamline your property tax process, ensuring accuracy <br /> and peace of mind. Our expertise helps you navigate assessments, appeals, and payments with ease.
         </p>
 
         <div className="flex justify-center">

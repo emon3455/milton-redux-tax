@@ -2,6 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import logo from "../assets/Logo_2-removebg-preview (1).png"
+import { MdOutlinePhoneEnabled } from 'react-icons/md'
+import { LuMail } from 'react-icons/lu'
+import { GrLocation } from 'react-icons/gr'
 
 const Footer = () => {
     return (
@@ -18,33 +21,62 @@ const Footer = () => {
                                 <p className="text-sm font-semibold">PROPERTY TAXES</p>
                             </div>
                         </div>
-                        <p className="py-8 text-sm text-white lg:max-w-xs lg:text-left">Trusted in more than 100 countries & 5 million customers. Have any query ?</p>
-                        <a href="#" className="py-2.5 px-5 h-9 block w-fit bg-gradient-to-r from-[#9b65e7] to-[#39cbce] rounded-full shadow-sm text-xs text-white  transition-all  duration-500 hover:bg-indigo-700 lg:mx-0">
+                        <Link href='tel:7864538127'>
+                            <ul className="mt-4  hidden lg:flex items-center gap-5">
+                                <li><MdOutlinePhoneEnabled className={`border-2 p-1 border-white rounded-full`} size={30} color="white" /></li>
+                                <li className="grid text-white gap-0 items-center">
+
+                                    <p>Phone: 786-453-8127</p>
+                                </li>
+                            </ul>
+                        </Link>
+                        <Link href='tel:7864538127'>
+                            <ul className="mt-4  hidden lg:flex items-center gap-5">
+                                <li><LuMail className={`border-2 p-1 border-white rounded-full`} size={30} color="white" /></li>
+                                <li className="grid text-white gap-0 items-center">
+
+                                    <p>Email: nfo@MiamiPropertyTaxes.com</p>
+                                </li>
+                            </ul>
+
+                        </Link>
+                        <Link href='tel:7864538127'>
+                            <ul className="mt-4  hidden lg:flex items-center gap-5">
+                                <li><GrLocation className={`border-2 p-1 border-white rounded-full`} size={30} color="white" /></li>
+                                <li className="grid text-white gap-0 items-center">
+
+                                    <p>3636 SW 87 Ave.
+                                        Miami, Florida 33165</p>
+                                </li>
+                            </ul>
+                        </Link>
+
+                        {/* <a href="#" className="py-2.5 px-5 h-9 block w-fit bg-gradient-to-r from-[#9b65e7] to-[#39cbce] rounded-full shadow-sm text-xs text-white  transition-all  duration-500 hover:bg-indigo-700 lg:mx-0">
                             Contact us
-                        </a>
+                        </a> */}
                     </div>
                     <div className="lg:mx-auto text-left ">
                         <h4 className="text-lg text-white font-medium mb-7">Miami Property Tax</h4>
                         <ul className="text-sm  transition-all duration-500">
                             <li className="mb-6"><a href="#" className="text-white hover:text-white">Home</a></li>
                             <li className="mb-6"><a href="#" className=" text-white hover:text-white">About</a></li>
-                            <li><a href="#" className=" text-white hover:text-white">Features</a></li>
+                            <li><a href="#" className=" text-white hover:text-white">Services</a></li>
                         </ul>
                     </div>
                     <div className="lg:mx-auto text-left">
                         <h4 className="text-lg text-white font-medium mb-7">Resources</h4>
                         <ul className="text-sm  transition-all duration-500">
-                            <li className="mb-6"><a href="#" className="text-white hover:text-white">FAQs</a></li>
-                            <li className="mb-6"><a href="#" className=" text-white hover:text-white">Quick Start</a></li>
-                            <li><a href="#" className=" text-white hover:text-white">User Guide</a></li>
+                            <li className="mb-6"><a href="#" className="text-white hover:text-white">Careers</a></li>
+                            <li className="mb-6"><a href="#" className=" text-white hover:text-white">Consultation</a></li>
+                            <li><a href="#" className=" text-white hover:text-white">Resources</a></li>
                         </ul>
                     </div>
                     <div className="lg:mx-auto text-left">
                         <h4 className="text-lg text-white font-medium mb-7">Legal</h4>
                         <ul className="text-sm  transition-all duration-500">
-                            <li className="mb-6"><a href="#" className="text-white hover:text-white">Privacy Policy</a></li>
-                            <li className="mb-6"><a href="#" className=" text-white hover:text-white">Terms and Conditons</a></li>
-                            <li><a href="#" className=" text-white hover:text-white">Disclaimer</a></li>
+                            <li className="mb-6"><a href="#" className="text-white hover:text-white">Blog</a></li>
+                            <li className="mb-6"><a href="#" className=" text-white hover:text-white">Terms and Conditions</a></li>
+                            <li><a href="#" className=" text-white hover:text-white">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
