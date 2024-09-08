@@ -117,7 +117,7 @@ const ApplicationForm: React.FC = () => {
             if (response.ok) {
                 successAlert({
                     title: "Form Submitted Successfully!",
-                    text: "Your information has been successfully saved! We've sent you an email with the necessary documents. Please check your Email inbox, Thank you.",
+                    text: "We have sent you an Agreement to sign from DocuSign. Please check your Email inbox or spam, Thank you.",
                     timer: 12000
                 })
             }
