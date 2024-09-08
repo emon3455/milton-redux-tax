@@ -7,7 +7,6 @@ import { addressAction } from "@/Redux/Features/address/addressSlice";
 import { useRouter } from 'next/navigation';
 import image1 from "../../assets/banner1.jpg"
 import image2 from "../../assets/banner2.jpg"
-import image3 from "../../assets/banner3.jpg"
 import image4 from "../../assets/banner4.jpg"
 
 const libraries: ("places")[] = ["places"];
@@ -24,7 +23,7 @@ const Search: React.FC = () => {
   const router = useRouter();
 
 
-  const images = [image1.src, image2.src, image3.src, image4.src];
+  const images = [image1.src, image2.src, image4.src];
 
 
   // Load Google Maps API
@@ -58,7 +57,7 @@ const Search: React.FC = () => {
           setInputValue(place.formatted_address || "");
           setError(false);
           setErrorMessage("");
-        
+
         }
       });
     }
@@ -97,7 +96,7 @@ const Search: React.FC = () => {
   };
 
   const gradientStyle = {
-    background: `url(${images[currentImageIndex]}), linear-gradient(to top, rgba(0, 0, 0, 0.288), rgba(0, 0, 0, 0.578))`,
+    background: `url(${images[currentImageIndex]}), linear-gradient(to top, rgba(0, 0, 0, 0.288), rgba(0, 0, 0, 0.700))`,
     backgroundSize: 'cover',
     backgroundBlendMode: 'overlay',
     backgroundPosition: 'bottom',
