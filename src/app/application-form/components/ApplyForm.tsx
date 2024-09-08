@@ -117,7 +117,8 @@ const ApplicationForm: React.FC = () => {
             if (response.ok) {
                 successAlert({
                     title: "Form Submitted Successfully!",
-                    text: "Your information successfully saved we will reach you shortly!",
+                    text: "Your information has been successfully saved! We've sent you an email with the necessary documents. Please check your Email inbox, Thank you.",
+                    timer: 12000
                 })
             }
         } catch (error) {

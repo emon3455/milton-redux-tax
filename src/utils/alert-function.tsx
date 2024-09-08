@@ -24,12 +24,12 @@ interface AlertProps {
 }
 
 //success
-export const successAlert = ({ title, text, ...rest }: AlertProps) => {
+export const successAlert = ({ title, text,timer, ...rest }: AlertProps) => {
   return Swal.fire({
     icon: "success",
     title: title || "Success",
     text: text || "Successfully Done",
-    timer: 3000,
+    timer: timer || 4000,
     timerProgressBar: true,
     ...rest,
   });
