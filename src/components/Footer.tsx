@@ -5,12 +5,13 @@ import logo from "../assets/Logo_2-removebg-preview (1).png"
 import { MdOutlinePhoneEnabled } from 'react-icons/md'
 import { LuMail } from 'react-icons/lu'
 import { GrLocation } from 'react-icons/gr'
+import { DiJava } from 'react-icons/di'
 
 const Footer = () => {
     return (
         <footer className="w-full bg-black">
             <div className="mx-auto  px-4 sm:px-6 lg:px-20">
-                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-8 py-10 max-sm:max-w-sm max-sm:mx-auto gap-y-8">
+                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8 py-10 max-sm:max-w-sm max-sm:mx-auto gap-y-8">
                     <div className="col-span-full justify-self-start mb-10 lg:col-span-2 lg:mb-0">
                         <div className=" flex  items-center gap-4 text-white">
                             <Link className="" href="/">
@@ -21,63 +22,61 @@ const Footer = () => {
                                 <p className="text-sm font-semibold">PROPERTY TAXES</p>
                             </div>
                         </div>
-                        <Link href='tel:7864538127'>
-                            <ul className="mt-4  hidden lg:flex items-center gap-5">
-                                <li><MdOutlinePhoneEnabled className={`border-2 p-1 border-white rounded-full`} size={30} color="white" /></li>
-                                <li className="grid text-white gap-0 items-center">
 
-                                    <p>Phone: 786-453-8127</p>
-                                </li>
-                            </ul>
-                        </Link>
-                        <Link href='tel:7864538127'>
-                            <ul className="mt-4  hidden lg:flex items-center gap-5">
-                                <li><LuMail className={`border-2 p-1 border-white rounded-full`} size={30} color="white" /></li>
-                                <li className="grid text-white gap-0 items-center">
+                        <div className="mt-4  hidden lg:flex items-center gap-5">
+                            <Link href='tel:7864538127'><MdOutlinePhoneEnabled className={`border-2 p-1 border-white rounded-full`} size={30} color="white" /></Link>
+                            <div className="grid text-white gap-0 items-center">
 
-                                    <p>Email: nfo@MiamiPropertyTaxes.com</p>
-                                </li>
-                            </ul>
+                                <Link href='tel:7864538127'>Phone: 786-453-8127</Link>
+                            </div>
+                        </div>
 
-                        </Link>
-                        <Link href='tel:7864538127'>
-                            <ul className="mt-4  hidden lg:flex items-center gap-5">
-                                <li><GrLocation className={`border-2 p-1 border-white rounded-full`} size={30} color="white" /></li>
-                                <li className="grid text-white gap-0 items-center">
 
-                                    <p>3636 SW 87 Ave.
-                                        Miami, Florida 33165</p>
-                                </li>
-                            </ul>
-                        </Link>
+                        <div className="mt-4  hidden lg:flex items-center gap-5">
+                            <Link href='mailto:nfo@MiamiPropertyTaxes.com'><LuMail className={`border-2 p-1 border-white rounded-full`} size={30} color="white" /></Link>
+                            <div className="grid text-white gap-0 items-center">
+
+                                <Link href='mailto:nfo@MiamiPropertyTaxes.com'>Email: nfo@MiamiPropertyTaxes.com</Link>
+                            </div>
+                        </div>
+
+
+                        <div className="mt-4  hidden lg:flex items-center gap-5">
+                            <Link href='https://maps.app.goo.gl/LVGZ36N3mMLw4jUXA'><GrLocation className={`border-2 p-1 border-white rounded-full`} size={30} color="white" /></Link>
+                            <div className="grid text-white gap-0 items-center">
+
+                                <Link href='https://maps.app.goo.gl/LVGZ36N3mMLw4jUXA'>3636 SW 87 Ave.
+                                    Miami, Florida 33165</Link>
+                            </div>
+                        </div>
 
                         {/* <a href="#" className="py-2.5 px-5 h-9 block w-fit bg-gradient-to-r from-[#9b65e7] to-[#39cbce] rounded-full shadow-sm text-xs text-white  transition-all  duration-500 hover:bg-indigo-700 lg:mx-0">
                             Contact us
                         </a> */}
                     </div>
                     <div className="lg:mx-auto text-left ">
-                        <h4 className="text-lg text-white font-medium mb-7">Miami Property Tax</h4>
-                        <ul className="text-sm  transition-all duration-500">
-                            <li className="mb-6"><a href="#" className="text-white hover:text-white">Home</a></li>
-                            <li className="mb-6"><a href="#" className=" text-white hover:text-white">About</a></li>
-                            <li><a href="#" className=" text-white hover:text-white">Services</a></li>
-                        </ul>
+                        <h4 className="text-lg text-white font-medium mb-2">Miami Property Tax</h4>
+                        <div className="text-sm  transition-all duration-500">
+                            <p className="mb-3"><Link href="/" className="text-white hover:text-white">Home</Link></p>
+                            <p className="mb-3"><Link href="https://w15050.proweaversite15.com/tax-consulting-about-us" className=" text-white hover:text-white">About</Link></p>
+                            <p><Link href="https://w15050.proweaversite15.com/tax-consulting-services" className=" text-white hover:text-white">Services</Link></p>
+                        </div>
                     </div>
                     <div className="lg:mx-auto text-left">
-                        <h4 className="text-lg text-white font-medium mb-7">Resources</h4>
-                        <ul className="text-sm  transition-all duration-500">
-                            <li className="mb-6"><a href="#" className="text-white hover:text-white">Careers</a></li>
-                            <li className="mb-6"><a href="#" className=" text-white hover:text-white">Consultation</a></li>
-                            <li><a href="#" className=" text-white hover:text-white">Resources</a></li>
-                        </ul>
+                        <h4 className="text-lg text-white font-medium mb-2">Resources</h4>
+                        <div className="text-sm  transition-all duration-500">
+                            <p className="mb-3"><Link href="https://w15050.proweaversite15.com/tax-consulting-careers" className="text-white hover:text-white">Careers</Link></p>
+                            <p className="mb-3"><Link href="https://w15050.proweaversite15.com/tax-consulting-consultation" className=" text-white hover:text-white">Consultation</Link></p>
+                            <p><Link href="https://w15050.proweaversite15.com/tax-consulting-resources" className=" text-white hover:text-white">Resources</Link></p>
+                        </div>
                     </div>
                     <div className="lg:mx-auto text-left">
-                        <h4 className="text-lg text-white font-medium mb-7">Legal</h4>
-                        <ul className="text-sm  transition-all duration-500">
-                            <li className="mb-6"><a href="#" className="text-white hover:text-white">Blog</a></li>
-                            <li className="mb-6"><a href="#" className=" text-white hover:text-white">Terms and Conditions</a></li>
-                            <li><a href="#" className=" text-white hover:text-white">Contact Us</a></li>
-                        </ul>
+                        <h4 className="text-lg text-white font-medium mb-2">Legal</h4>
+                        <div className="text-sm  transition-all duration-500">
+                            <p className="mb-3"><Link href="https://w15050.proweaversite15.com/tax-consulting-blog" className="text-white hover:text-white">Blog</Link></p>
+                            <p className="mb-3"><Link href="https://w15050.proweaversite15.com/terms-and-conditions" className=" text-white hover:text-white">Terms and Conditions</Link></p>
+                            <p><Link href="https://w15050.proweaversite15.com/tax-consulting-contact-us" className=" text-white hover:text-white">Contact Us</Link></p>
+                        </div>
                     </div>
                 </div>
                 <div className="py-7 border-t border-gray-200">
@@ -113,7 +112,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer >
 
     )
 }
